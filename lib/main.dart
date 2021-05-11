@@ -25,6 +25,7 @@ class App extends StatelessWidget {
 class Home extends ConsumerWidget {
   @override
   Widget build(BuildContext context, ScopedReader watch) {
+    // using data?.value
     final huh = watch(myProvider).data?.value;
 
     return Scaffold(
@@ -52,7 +53,7 @@ class Slash extends StatelessWidget {
       child: Consumer(
         builder: (context, watch, child) {
           final s = watch(myProvider);
-          print(s.runtimeType);
+          // using when
           return s.when(
               error: (err, stack) => Text('uh oh!'),
               loading: () => CircularProgressIndicator(),
